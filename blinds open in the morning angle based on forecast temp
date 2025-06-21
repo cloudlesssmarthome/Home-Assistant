@@ -1,0 +1,33 @@
+alias: Blinds - Bedroom Open in the Morning
+description: ""
+triggers:
+  - trigger: calendar
+    entity_id: calendar.wakeup_alarm
+    event: start
+    offset: "0:0:0"
+conditions: []
+actions:
+  - if:
+      - condition: numeric_state
+        entity_id: weather.forecast_route_bb_meteorologisk_weather
+        attribute: temperature
+        below: 75
+    then:
+      - device_id: 2173c11ff8c99593256aaf1fbe5b2ec9
+        domain: cover
+        entity_id: 0c0fe1e0f6011cc493945db51f712a40
+        type: set_tilt_position
+        position: 30
+    else:
+      - if:
+          - condition: numeric_state
+            entity_id: weather.forecast_route_bb_meteorologisk_weather
+            attribute: temperature
+            above: 74
+        then:
+          - device_id: 2173c11ff8c99593256aaf1fbe5b2ec9
+            domain: cover
+            entity_id: 0c0fe1e0f6011cc493945db51f712a40
+            type: set_tilt_position
+            position: 75
+mode: single
