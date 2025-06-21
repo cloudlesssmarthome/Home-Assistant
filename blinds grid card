@@ -1,0 +1,43 @@
+type: grid
+cards:
+  - type: heading
+    heading: Bedroom Blinds
+  - type: tile
+    entity: cover.bedroom_blinds
+    grid_options:
+      columns: 6
+      rows: 2
+  - show_name: true
+    show_icon: true
+    type: button
+    tap_action:
+      action: toggle
+    entity: script.blinds_close_bedroom_button
+    icon: mdi:blinds-horizontal-closed
+    name: Close
+    grid_options:
+      columns: 3
+      rows: 2
+  - show_name: true
+    show_icon: true
+    type: button
+    tap_action:
+      action: toggle
+    entity: script.blinds_open_bedroom_button
+    icon: mdi:blinds-horizontal-closed
+    name: Open
+    grid_options:
+      columns: 3
+      rows: 2
+  - type: gauge
+    entity: sensor.bedroom_blinds_battery
+    grid_options:
+      columns: 6
+      rows: auto
+    min: 0
+    needle: true
+    severity:
+      green: 40
+      yellow: 20
+      red: 0
+    max: 100
