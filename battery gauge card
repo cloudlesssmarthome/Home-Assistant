@@ -1,0 +1,24 @@
+type: gauge
+entity: sensor.kitchen_blinds_battery
+grid_options:
+  columns: 6
+  rows: auto
+min: 0
+needle: true
+severity:
+  green: 40
+  yellow: 20
+  red: 0
+max: 100
+
+type: gauge
+entity: sensor.sem_meter_sensor_2_w
+grid_options:
+  columns: 6
+  rows: auto
+severity:
+  green: 0
+  yellow: 2000
+  red: 2200
+needle: true
+max: 2400
